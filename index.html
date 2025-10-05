@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>Foto/Vídeo com Moldura</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- TELA INICIAL: só imagem + botão invisível de tela inteira -->
+  <section id="start" class="start" aria-label="Toque para abrir">
+    <button id="btnStart" class="start-hit" aria-label="Abrir"></button>
+  </section>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="spacer"></div>
+    <button id="btnFlip" class="iconimg flip" aria-label="Virar câmera"></button>
+  </header>
+
+  <!-- Indicador de gravação -->
+  <div id="recBadge" class="rec hidden" aria-live="polite">● REC <span id="recClock">00:00</span></div>
+
+  <!-- Área principal -->
+  <main class="stage">
+    <video id="video" autoplay playsinline muted></video>
+
+    <!-- Moldura dinâmica -->
+    <img id="overlay" class="overlay hidden" alt="Moldura do cliente">
+
+    <!-- Botões principais -->
+    <div id="shootArea" class="actions">
+      <button id="btnRec"  class="btnimg gravar" aria-label="Gravar"></button>
+      <button id="btnShot" class="btnimg foto"   aria-label="Foto"></button>
+    </div>
+
+    <!-- Após foto -->
+    <div id="resultArea" class="actions hidden">
+      <button id="btnSave"  class="btnimg salvar"  aria-label="Salvar/Compartilhar foto"></button>
+      <button id="btnAgain" class="btnimg refazer" aria-label="Refazer foto"></button>
+    </div>
+
+    <!-- Durante/Após vídeo -->
+    <div id="resultVideoArea" class="actions hidden">
+      <button id="btnSaveVid"  class="btnimg salvar"  aria-label="Compartilhar/Salvar vídeo"></button>
+      <button id="btnAgainVid" class="btnimg refazer" aria-label="Refazer vídeo"></button>
+    </div>
+  </main>
+
+  <!-- Canvas final (foto) -->
+  <canvas id="canvas" width="1080" height="1920" class="hidden"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
